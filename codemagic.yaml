@@ -3,7 +3,7 @@ workflows:
     name: Build TrackerApp
     max_build_duration: 120
     environment:
-      python_version: "3.11"
+      image: codemagic/android:ubuntu-22.04-python-3.11
     scripts:
       - name: Instalar Buildozer
         script: |
