@@ -1,15 +1,12 @@
 workflows:
   build-tracker:
-    name: Build TrackerApp
+    name: Build Tracker APK
     max_build_duration: 120
-    environment:
-      image: codemagic/android:ubuntu-22.04-python-3.11
     scripts:
-      - name: Instalar Buildozer
+      - name: Install dependencies
         script: |
-          pip install --upgrade buildozer
-      - name: Compilar APK
+          python -m pip install --upgrade pip
+          pip install buildozer kivy plyer
+      - name: Build APK
         script: |
           buildozer android debug
-    artifacts:
-      - buildozer/bin/*.apk
